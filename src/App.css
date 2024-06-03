@@ -362,8 +362,11 @@ form .btn2 {
 .copyright i {
   color: #ff004f
 }
+nav .fas {
+  display: none;
+}
 
-/* ********css for small screens***** */
+/*********css for small screens******/
 @media only screen and (max-width: 600px) {
   #header {
     background-image: url("../public/images/phone-background.png");
@@ -372,5 +375,32 @@ form .btn2 {
     margin-top: 100%;
     font-size:16px; 
   }
-  
+  .header-text h1 {
+    font-size: 30px;
+  }
+  nav .fas {
+    display: block;
+    font-size: 25px;
+  }
+  nav ul {
+    background: #ff004f;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  nav ul li {
+    margin: 25px;
+    display: block;
+  }
+  nav ul .fas { 
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    cursor: pointer;
+  }
 }

@@ -1,10 +1,23 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 function App() {
   const[activeTab, setActiveTab] = useState('skills');
   const openTab = (activeTab) => {
     setActiveTab(activeTab);
+  };
+  const sideMenuRef = useRef(null);
+  const openSideBar = () => {
+    console.log("open");
+    if(sideMenuRef.current) {
+        console.log("open side");
+        sideMenuRef.current.style.right = "0px";
+    }
+  }
+  const closeSideBar = () => {
+    if(sideMenuRef.current) {
+        sideMenuRef.current.style.right = "-200px";
+    }
   }
   return (
     <>
@@ -12,13 +25,15 @@ function App() {
         <div className="container">
             <nav>
                 <img src="images/logo1.png" alt='logo' className='logo' />
-                <ul>
+                <ul ref={sideMenuRef}>
                     <li><a href="m">Home</a></li>
                     <li><a href="m">About</a></li>
                     <li><a href="m">Services</a></li>
                     <li><a href="m">Portfolio</a></li>
                     <li><a href="m">Contact</a></li>
+                    <i className='fas fa-times' onClick={() => {closeSideBar()}}></i>
                 </ul>
+                <i className='fas fa-bars' onClick={() => {openSideBar()}}></i>
             </nav>
             <div className="header-text">
                 <p>React. DotNet. Devops.</p>
@@ -102,7 +117,7 @@ function App() {
                     <div className="layer">
                         <h3>Hostel Management</h3>
                         <p>This app Connects you to the talented people around the world. Download it from the play store.</p>
-                        <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="m"><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div className="work">
@@ -110,7 +125,7 @@ function App() {
                     <div className="layer">
                         <h3>Weather app</h3>
                         <p>This was made using open weather API and using React JS. Using dynamic icons and se</p>
-                        <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="m"><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div className="work">
@@ -118,7 +133,7 @@ function App() {
                     <div className="layer">
                         <h3>Tindog</h3>
                         <p>This is design oriented page developed with only HTML, JavaScript and CSS with flexbox and bootstrap.</p>
-                        <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="m"><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
             </div>
@@ -131,12 +146,12 @@ function App() {
             <div className="row">
                 <div className="contact-left">
                     <h1 className='sub-title'>Contact Me</h1>
-                    <p><i class="fa-solid fa-square-envelope"></i>vaibhavkumawat70@gmail.com</p>
-                    <p><i class="fa-solid fa-square-phone"></i>8544985455</p>
+                    <p><i className="fa-solid fa-square-envelope"></i>vaibhavkumawat70@gmail.com</p>
+                    <p><i className="fa-solid fa-square-phone"></i>8544985455</p>
                     <div className="social-icons">
-                        <a href="https://www.linkedin.com/in/vaibhav-kumawat-1710a3193/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/vaibhav70/"><i class="fa-brands fa-square-github"></i></a>
-                        <a href="https://www.instagram.com/vaibhav.dng"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/vaibhav-kumawat-1710a3193/"><i className="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/vaibhav70/"><i className="fa-brands fa-square-github"></i></a>
+                        <a href="https://www.instagram.com/vaibhav.dng"><i className="fa-brands fa-square-instagram"></i></a>
                     </div>
                     <a href="files/VaibhavSDE.pdf" download className='btn btn2'>Download CV</a>
                 </div>
@@ -152,7 +167,7 @@ function App() {
         </div>
       </div>
       <div className="copyright">
-        <p>Copyright © Vaibhav. Made with <i class="fa-solid fa-heart"></i> by Vaibhav Kumawat</p>
+        <p>Copyright © Vaibhav. Made with <i className="fa-solid fa-heart"></i> by Vaibhav Kumawat</p>
       </div>
     </>
   );
