@@ -100,20 +100,59 @@ function App() {
                 <div className="work">
                     <img src="images/work-1.png" alt="work" />
                     <div className="layer">
-                        <h3>Social media app</h3>
+                        <h3>Hostel Management</h3>
                         <p>This app Connects you to the talented people around the world. Download it from the play store.</p>
                         <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div className="work">
                     <img src="images/work-2.png" alt="work" />
+                    <div className="layer">
+                        <h3>Weather app</h3>
+                        <p>This was made using open weather API and using React JS. Using dynamic icons and se</p>
+                        <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
                 </div>
                 <div className="work">
                     <img src="images/work-3.png" alt="work" />
+                    <div className="layer">
+                        <h3>Tindog</h3>
+                        <p>This is design oriented page developed with only HTML, JavaScript and CSS with flexbox and bootstrap.</p>
+                        <a href="m"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
                 </div>
             </div>
-
+            <a href="m" className='btn'>See more</a>
         </div>
+      </div>
+      {/***** contact ****/}
+      <div id="contact">
+        <div className="container">
+            <div className="row">
+                <div className="contact-left">
+                    <h1 className='sub-title'>Contact Me</h1>
+                    <p><i class="fa-solid fa-square-envelope"></i>vaibhavkumawat70@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>8544985455</p>
+                    <div className="social-icons">
+                        <a href="https://www.linkedin.com/in/vaibhav-kumawat-1710a3193/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/vaibhav70/"><i class="fa-brands fa-square-github"></i></a>
+                        <a href="https://www.instagram.com/vaibhav.dng"><i class="fa-brands fa-square-instagram"></i></a>
+                    </div>
+                    <a href="files/VaibhavSDE.pdf" download className='btn btn2'>Download CV</a>
+                </div>
+                <div className="contact-right">
+                    <form >
+                        <input type="text" name='name' placeholder='Your name' required/>
+                        <input type="email" name='email' placeholder='Your email'required/>
+                        <textarea name="Message" rows='6' placeholder='Your message'></textarea>
+                        <button type='submit' className='btn btn2'>Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="copyright">
+        <p>Copyright © Vaibhav. Made with <i class="fa-solid fa-heart"></i> by Vaibhav Kumawat</p>
       </div>
     </>
   );
