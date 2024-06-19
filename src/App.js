@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
     const [activeTab, setActiveTab] = useState('skills');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [messg, setMessg] = useState('');
     const openTab = (activeTab) => {
         setActiveTab(activeTab);
     };
@@ -26,20 +29,26 @@ function App() {
             const handleSubmit = (e) => {
                 e.preventDefault();
 
-                // Replace with your script URL
+                
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbxFwLV29GQYgoKXsdnnbmQrHYJN9k6wp5wKDoScNhVkqBjV7_mqBHVsaQlPm9kw4xc5/exec';
 
                 fetch(scriptURL, {
                     method: 'POST',
                     body: new FormData(form)
                 })
-                    .then(response => console.log('Success!', response))
-                    .catch(error => console.error('Error!', error.message));
+                .then(response => {
+                    console.log('Success!', response);
+                    setName('');
+                    setEmail('');
+                    setMessg('');
+                    alert('Successfully submitted!')
+                })
+                .catch(error => console.error('Error!', error.message));
             };
 
             form.addEventListener('submit', handleSubmit);
 
-            // Cleanup function to remove event listener
+            // Cleanup 
             return () => {
                 form.removeEventListener('submit', handleSubmit);
             };
@@ -183,9 +192,9 @@ function App() {
                         </div>
                         <div className="contact-right">
                             <form ref={formRef} id="submit-to-google-sheet">
-                                <input type="text" name='Name' placeholder='Your name' required />
-                                <input type="email" name='Email' placeholder='Your email' required />
-                                <textarea name="Message" rows='6' placeholder='Your message'></textarea>
+                                <input value={name} onChange={(event) => {setName(event.target.value)}} type="text" name='Name' placeholder='Your name' required />
+                                <input value={email} onChange={(event) => {setEmail(event.target.value)}} type="email" name='Email' placeholder='Your email' required />
+                                <textarea value={messg} onChange={(event) => {setMessg(event.target.value)}} name="Message" rows='6' placeholder='Your message'></textarea>
                                 <button type='submit' className='btn btn2'>Submit</button>
                             </form>
                         </div>
